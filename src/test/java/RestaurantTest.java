@@ -32,7 +32,6 @@ class RestaurantTest {
         restaurant.openingTime = LocalTime.parse("10:30:00");
         restaurant.closingTime = LocalTime.parse("22:00:00");
         assertTrue(restaurant.isRestaurantOpen());
-
     }
 
     @Test

@@ -65,8 +65,7 @@ class RestaurantServiceTest {
     //<<<<<<<<<<<<<<<<<<<<ADMIN: ADDING & REMOVING RESTAURANTS>>>>>>>>>>>>>>>>>>>>>>>>>>
 
     @Test
-    public void calculate_total_cost_should_return_sum_amount_as_per_item_names()  throws restaurantNotFoundException{
-        int total_amount;
+    public void calculate_total_cost_should_return_sum_amount_as_per_item_names(){
         restaurant.addToMenu("Hot Chocolates",119);
         restaurant.addToMenu("Veg Thali", 269);
         restaurant.addToMenu("Vanilla Icecream",59);
@@ -83,7 +82,7 @@ class RestaurantServiceTest {
     }
 
     @Test
-    public void calculate_total_cost_should_return_zero_amount_if_item_list_is_blank() throws restaurantNotFoundException{
+    public void calculate_total_cost_should_return_zero_amount_if_item_list_is_blank(){
         int total_amount;
         List<String> item_list = new ArrayList<>();
 
