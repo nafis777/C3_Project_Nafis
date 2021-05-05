@@ -8,7 +8,6 @@ public class Restaurant {
     private String location;
     public LocalTime openingTime;
     public LocalTime closingTime;
-    protected LocalTime current_time = this.getCurrentTime();
     private List<Item> menu = new ArrayList<Item>();
 
     public Restaurant(String name, String location, LocalTime openingTime, LocalTime closingTime) {
@@ -20,7 +19,7 @@ public class Restaurant {
 
     public boolean isRestaurantOpen() {
         boolean result = false;
-        if(this.current_time.isAfter(this.openingTime) && this.current_time.isBefore(this.closingTime))
+        if(this.getCurrentTime().isAfter(this.openingTime) && this.getCurrentTime().isBefore(this.closingTime))
         {
             result = true;
         }
