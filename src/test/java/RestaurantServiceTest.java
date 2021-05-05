@@ -1,8 +1,11 @@
 import org.junit.jupiter.api.*;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 class RestaurantServiceTest {
@@ -60,4 +63,32 @@ class RestaurantServiceTest {
         assertEquals(initialNumberOfRestaurants + 1,service.getRestaurants().size());
     }
     //<<<<<<<<<<<<<<<<<<<<ADMIN: ADDING & REMOVING RESTAURANTS>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    @Test
+    public void calculate_total_cost_should_return_sum_amount_as_per_item_names()  throws restaurantNotFoundException{
+        int total_amount;
+        restaurant.addToMenu("Hot Chocolates",119);
+        restaurant.addToMenu("Veg Thali", 269);
+        restaurant.addToMenu("Vanilla Icecream",59);
+        restaurant.addToMenu("Caramel pudding", 211);
+
+        List<String> item_list = new ArrayList<>();
+        item_list.add("Sweet corn soup");
+        item_list.add("Hot Chocolates");
+        item_list.add("Vanilla Icecream");
+        item_list.add("Caramel pudding");
+        item_list.add("Vegetable lasagne");
+
+        assertEquals(777, service.calculate_total_cost(item_list, restaurant));
+    }
+
+    @Test
+    public void calculate_total_cost_should_return_zero_amount_if_item_list_is_blank() throws restaurantNotFoundException{
+        int total_amount;
+        List<String> item_list = new ArrayList<>();
+        item_list.add("Sweet corn soup");
+        item_list.add("Vegetable lasagne");
+
+        assertEquals(388, service.calculate_total_cost(item_list, restaurant));
+    }
 }
