@@ -32,8 +32,15 @@ public class RestaurantService {
     }
 
     public int calculate_total_cost(List<String> item_name_list, Restaurant restaurant_object){
-        int total =0;
-        // logic to be implemented
+        int price=0, total =0;
+        for (String item_name : item_name_list) {
+            for (Item item : restaurant_object.getMenu()) {
+                if (item.getName().equals(item_name)) {
+                    price = item.getPrice();
+                    total += price;
+                }
+            }
+        }
         return total;
 
     }
