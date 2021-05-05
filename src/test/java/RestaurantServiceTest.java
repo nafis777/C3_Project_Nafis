@@ -86,9 +86,7 @@ class RestaurantServiceTest {
     public void calculate_total_cost_should_return_zero_amount_if_item_list_is_blank() throws restaurantNotFoundException{
         int total_amount;
         List<String> item_list = new ArrayList<>();
-        item_list.add("Sweet corn soup");
-        item_list.add("Vegetable lasagne");
 
-        assertEquals(388, service.calculate_total_cost(item_list, restaurant));
+        assertEquals(0, service.calculate_total_cost(item_list, restaurant));
     }
 }
